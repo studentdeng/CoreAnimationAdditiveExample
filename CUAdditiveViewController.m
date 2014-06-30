@@ -20,16 +20,16 @@ typedef NS_OPTIONS(NSUInteger, CUAnimationType) {
 
 @interface CUAdditiveViewController ()
 
-@property(weak, nonatomic) IBOutlet UIImageView *imageViewA;
-@property(weak, nonatomic) IBOutlet UIImageView *imageViewB;
-@property(weak, nonatomic) IBOutlet UIImageView *imageViewC;
+@property(weak, nonatomic) IBOutlet UIImageView *imageViewLeft;
+@property(weak, nonatomic) IBOutlet UIImageView *imageViewCenter;
+@property(weak, nonatomic) IBOutlet UIImageView *imageViewRight;
 @end
 
 @implementation CUAdditiveViewController
 {
-  BOOL _isForwardA;
-  BOOL _isForwardB;
-  BOOL _isForwardC;
+  BOOL _isForwardLeft;
+  BOOL _isForwardCenter;
+  BOOL _isForwardRight;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil
@@ -44,9 +44,9 @@ typedef NS_OPTIONS(NSUInteger, CUAnimationType) {
 - (void)viewDidLoad {
   [super viewDidLoad];
   // Do any additional setup after loading the view from its nib.
-  self.imageViewA.backgroundColor = [UIColor redColor];
-  self.imageViewB.backgroundColor = [UIColor blueColor];
-  self.imageViewC.backgroundColor = [UIColor greenColor];
+  self.imageViewLeft.backgroundColor = [UIColor redColor];
+  self.imageViewCenter.backgroundColor = [UIColor blueColor];
+  self.imageViewRight.backgroundColor = [UIColor greenColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,9 +65,9 @@ typedef NS_OPTIONS(NSUInteger, CUAnimationType) {
   
 #else
   
-  [self animateType:CUAnimationTypeNone inLayer:self.imageViewA.layer];
-  [self animateType:CUAnimationTypeAdditive inLayer:self.imageViewB.layer];
-  [self animateType:CUAnimationTypeBeginFromCurrentState inLayer:self.imageViewC.layer];
+  [self animateType:CUAnimationTypeNone inLayer:self.imageViewLeft.layer];
+  [self animateType:CUAnimationTypeAdditive inLayer:self.imageViewCenter.layer];
+  [self animateType:CUAnimationTypeBeginFromCurrentState inLayer:self.imageViewRight.layer];
   
 #endif
 }
@@ -77,7 +77,7 @@ typedef NS_OPTIONS(NSUInteger, CUAnimationType) {
   if (!isReverse) {
     [UIView animateWithDuration:1.0f
                      animations:^{
-                       self.imageViewC.center = CGPointMake(self.imageViewC.center.x, 500);
+                       self.imageViewRight.center = CGPointMake(self.imageViewRight.center.x, 500);
                      }];
   }
   else
@@ -86,7 +86,7 @@ typedef NS_OPTIONS(NSUInteger, CUAnimationType) {
                           delay:0
                         options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveLinear
                      animations:^{
-                       self.imageViewC.center = CGPointMake(self.imageViewC.center.x, 88);
+                       self.imageViewRight.center = CGPointMake(self.imageViewRight.center.x, 88);
                      } completion:^(BOOL finished) {
                      }];
   }
@@ -97,14 +97,14 @@ typedef NS_OPTIONS(NSUInteger, CUAnimationType) {
   if (!isReverse) {
     [UIView animateWithDuration:1.0f
                      animations:^{
-                       self.imageViewA.center = CGPointMake(self.imageViewA.center.x, 500);
+                       self.imageViewLeft.center = CGPointMake(self.imageViewLeft.center.x, 500);
                      }];
   }
   else
   {
     [UIView animateWithDuration:1.0f
                      animations:^{
-                       self.imageViewA.center = CGPointMake(self.imageViewA.center.x, 88);
+                       self.imageViewLeft.center = CGPointMake(self.imageViewLeft.center.x, 88);
                      } completion:^(BOOL finished) {
                      }];
   }
@@ -123,14 +123,14 @@ typedef NS_OPTIONS(NSUInteger, CUAnimationType) {
   switch (type) {
   case CUAnimationTypeNone: {
     
-    if (!_isForwardA) {
-      _isForwardA = YES;
+    if (!_isForwardLeft) {
+      _isForwardLeft = YES;
       animation.fromValue = fromValue;
       animation.toValue = toValue;
       endValue = toValue;
     }
     else {
-      _isForwardA = NO;
+      _isForwardLeft = NO;
       animation.fromValue = toValue;
       animation.toValue = fromValue;
       endValue = fromValue;
@@ -144,12 +144,12 @@ typedef NS_OPTIONS(NSUInteger, CUAnimationType) {
       break;
   case CUAnimationTypeAdditive: {
     
-    if (!_isForwardB) {
-      _isForwardB = YES;
+    if (!_isForwardCenter) {
+      _isForwardCenter = YES;
       animation.fromValue = @([fromValue intValue] - [toValue intValue]);
     }
     else {
-      _isForwardB = NO;
+      _isForwardCenter = NO;
       animation.fromValue = @([toValue intValue] - [fromValue intValue]);
       endValue = fromValue;
     }
@@ -164,14 +164,14 @@ typedef NS_OPTIONS(NSUInteger, CUAnimationType) {
   }
       break;
   case CUAnimationTypeBeginFromCurrentState: {
-    if (!_isForwardC) {
-      _isForwardC = YES;
+    if (!_isForwardRight) {
+      _isForwardRight = YES;
       animation.fromValue = @([animationLayer.presentationLayer position].y);
       animation.toValue = toValue;
       endValue = toValue;
     }
     else {
-      _isForwardC = NO;
+      _isForwardRight = NO;
       animation.fromValue = @([animationLayer.presentationLayer position].y);
       animation.toValue = fromValue;
       endValue = fromValue;
