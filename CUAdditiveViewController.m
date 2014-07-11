@@ -158,8 +158,11 @@ typedef NS_OPTIONS(NSUInteger, CUAnimationType) {
     animation.additive = YES;
 
     animationLayer.position = CGPointMake(animationLayer.position.x, [endValue intValue]);
-
-    NSString *key = [NSString stringWithFormat:@"ani_%@", [NSDate date]];
+    animation.timingFunction = [CAMediaTimingFunction functionWithControlPoints:.5 :0 :.5 :1]; // better easing function
+    
+    static NSUInteger number = 0; // use nil key or integer, not [NSDate date] because string description only shows seconds
+    NSString *key = [NSString stringWithFormat:@"ani_%lu", (unsigned long)number++];
+    
     [animationLayer addAnimation:animation forKey:key];
   }
       break;
