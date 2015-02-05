@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13A707AE1A83779B00B57C8E /* CUGestureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A707AC1A83779B00B57C8E /* CUGestureViewController.m */; };
+		13A707AF1A83779B00B57C8E /* CUGestureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13A707AD1A83779B00B57C8E /* CUGestureViewController.xib */; };
 		13AAF32A1961083D00CEBF11 /* CUAdditiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13AAF3281961083D00CEBF11 /* CUAdditiveViewController.m */; };
 		13AAF32B1961083D00CEBF11 /* CUAdditiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13AAF3291961083D00CEBF11 /* CUAdditiveViewController.xib */; };
 		13D0765619599BED006F7A0A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13D0765519599BED006F7A0A /* Foundation.framework */; };
@@ -34,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		13A707AB1A83779B00B57C8E /* CUGestureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUGestureViewController.h; sourceTree = "<group>"; };
+		13A707AC1A83779B00B57C8E /* CUGestureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUGestureViewController.m; sourceTree = "<group>"; };
+		13A707AD1A83779B00B57C8E /* CUGestureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CUGestureViewController.xib; sourceTree = "<group>"; };
 		13AAF3271961083D00CEBF11 /* CUAdditiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUAdditiveViewController.h; sourceTree = "<group>"; };
 		13AAF3281961083D00CEBF11 /* CUAdditiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUAdditiveViewController.m; sourceTree = "<group>"; };
 		13AAF3291961083D00CEBF11 /* CUAdditiveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CUAdditiveViewController.xib; sourceTree = "<group>"; };
@@ -82,6 +87,9 @@
 		13D0764919599BED006F7A0A = {
 			isa = PBXGroup;
 			children = (
+				13A707AB1A83779B00B57C8E /* CUGestureViewController.h */,
+				13A707AC1A83779B00B57C8E /* CUGestureViewController.m */,
+				13A707AD1A83779B00B57C8E /* CUGestureViewController.xib */,
 				13AAF3271961083D00CEBF11 /* CUAdditiveViewController.h */,
 				13AAF3281961083D00CEBF11 /* CUAdditiveViewController.m */,
 				13AAF3291961083D00CEBF11 /* CUAdditiveViewController.xib */,
@@ -230,6 +238,7 @@
 			files = (
 				13D0766019599BED006F7A0A /* InfoPlist.strings in Resources */,
 				13AAF32B1961083D00CEBF11 /* CUAdditiveViewController.xib in Resources */,
+				13A707AF1A83779B00B57C8E /* CUGestureViewController.xib in Resources */,
 				13D0766819599BED006F7A0A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,6 +260,7 @@
 			files = (
 				13D0766619599BED006F7A0A /* CUAppDelegate.m in Sources */,
 				13D0766219599BED006F7A0A /* main.m in Sources */,
+				13A707AE1A83779B00B57C8E /* CUGestureViewController.m in Sources */,
 				13AAF32A1961083D00CEBF11 /* CUAdditiveViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

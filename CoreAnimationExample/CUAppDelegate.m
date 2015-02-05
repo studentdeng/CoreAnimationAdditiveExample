@@ -8,6 +8,7 @@
 
 #import "CUAppDelegate.h"
 #import "CUAdditiveViewController.h"
+#import "CUGestureViewController.h"
 
 @implementation CUAppDelegate
 
